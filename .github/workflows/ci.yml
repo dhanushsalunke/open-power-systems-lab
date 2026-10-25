@@ -12,6 +12,7 @@ jobs:
       - run: python -m ruff check src tests --select E,F --ignore E501
       - run: python -m mypy src --ignore-missing-imports --follow-imports=skip
       - run: python -m compileall -q src tests
+      - run: python scripts/check_scope.py
       - run: pytest -q
       - run: python -m open_power_lab validate --config configs/baseline.yaml
       - run: python -m open_power_lab run --config configs/baseline.yaml --output results/ci

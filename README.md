@@ -29,7 +29,7 @@ The run produces `signals.csv`, `summary.json`, `report.md`, and plots when Matp
 | Frequency response and stability margin estimate | Implemented for the linearized buck model |
 | JSON-lines host protocol with validation/timeouts | Implemented and tested offline |
 | Firmware state-machine scaffold | Interface scaffold; not flashed or hardware-validated |
-| KiCad/firmware artifacts from the initial repository | Retained as explicitly out-of-scope legacy references; not used or validated by this software release |
+| Hardware integration | Deliberately out of scope; the repository is usable without physical hardware |
 | ngspice, Renode, physical HIL | Optional extension points; not executed in this environment |
 
 Simulation results are not proof of hardware safety. All reports include the model assumptions and validation boundary. See `docs/audit.md` for the starting condition and `docs/scope-and-artifacts.md` for the retained out-of-scope files.
@@ -55,4 +55,4 @@ The default model is a continuous-time averaged buck converter. It is appropriat
 
 ## License
 
-MIT. Hardware source is included as an engineering reference and must be reviewed against the selected parts, footprints, PCB manufacturer rules, and applicable safety requirements before fabrication.
+MIT. This repository contains software models and documentation only; it does not provide a fabrication-ready electronics design.
