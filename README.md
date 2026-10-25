@@ -7,9 +7,12 @@ The first release contains a complete vertical slice: a parameterized averaged b
 ## Quick start
 
 ```powershell
-py -m pip install -e .
+py -m pip install -e ".[dev,analysis]"
+python -m open_power_lab validate --config configs/baseline.yaml
 python -m open_power_lab run --config configs/baseline.yaml --output results/baseline
-pytest -q
+python -m open_power_lab sweep --config configs/baseline.yaml --parameter load_resistance_ohm --values 4,5,6 --output results/sweep.csv
+python -m open_power_lab compare --config configs/baseline.yaml --output results/baseline-vs-fault.json
+python -m open_power_lab verify
 ```
 
 The run produces `signals.csv`, `summary.json`, `report.md`, and plots when Matplotlib is installed. No physical hardware is required.
@@ -18,17 +21,17 @@ The run produces `signals.csv`, `summary.json`, `report.md`, and plots when Matp
 
 | Capability | Status |
 |---|---|
-| Averaged buck plant with losses and thermal estimate | Implemented and unit-tested |
+| Averaged buck plant with losses and thermal estimate | Implemented and unit-tested; strict CCM and bounded DCM approximation |
 | Closed-loop PI voltage control | Implemented and transient-tested |
 | Load step, input variation, sensor bias/noise/disconnect | Implemented and diagnosed |
 | Parameter sweep and Monte Carlo hooks | Implemented in the simulation API |
 | Frequency response and stability margin estimate | Implemented for the linearized buck model |
 | JSON-lines host protocol with validation/timeouts | Implemented and tested offline |
 | Firmware state-machine scaffold | Interface scaffold; not flashed or hardware-validated |
-| KiCad low-voltage interface source | Reference source; ERC/DRC not run here |
+| KiCad/firmware artifacts from the initial repository | Retained as explicitly out-of-scope legacy references; not used or validated by this software release |
 | ngspice, Renode, physical HIL | Optional extension points; not executed in this environment |
 
-Simulation results are not proof of hardware safety. All reports include the model assumptions and validation boundary.
+Simulation results are not proof of hardware safety. All reports include the model assumptions and validation boundary. See `docs/audit.md` for the starting condition and `docs/scope-and-artifacts.md` for the retained out-of-scope files.
 
 ## Architecture
 
