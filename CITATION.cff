@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "Open Power Systems Lab"
+message: "If this work supports your research or design, please cite the repository."
+type: software
+authors:
+  - family-names: Salunke
+    given-names: Dhanush
+year: 2026
+version: 0.1.0
+repository-code: https://github.com/dhanushsalunke/open-power-systems-lab
+license: MIT

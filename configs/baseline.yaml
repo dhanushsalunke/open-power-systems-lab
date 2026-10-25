@@ -1,0 +1,27 @@
+simulation:
+  duration_s: 0.25
+  timestep_s: 0.00005
+  seed: 7
+plant:
+  input_voltage_v: 12.0
+  reference_voltage_v: 5.0
+  inductance_h: 0.00047
+  capacitance_f: 0.0001
+  inductor_resistance_ohm: 0.08
+  switch_resistance_ohm: 0.06
+  diode_drop_v: 0.55
+  load_resistance_ohm: 5.0
+  current_limit_a: 3.0
+  thermal_resistance_c_per_w: 18.0
+controller:
+  kp: 0.08
+  ki: 35.0
+  duty_min: 0.02
+  duty_max: 0.90
+faults:
+  - type: load_step
+    time_s: 0.12
+    value: 2.5
+  - type: sensor_bias
+    time_s: 0.18
+    value: 0.03
