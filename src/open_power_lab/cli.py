@@ -45,6 +45,9 @@ def main(argv: list[str] | None = None) -> int:
             "buck-averaged-dcm_approx: startup-compatible zero-current clipping approximation"
         )
         print(
+            "battery-thevenin: static OCV-SOC and internal-resistance energy-storage model"
+        )
+        print(
             "pi-voltage-controller: saturated PI controller with conditional anti-windup"
         )
         return 0

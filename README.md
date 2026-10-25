@@ -22,6 +22,7 @@ The run produces `signals.csv`, `summary.json`, `report.md`, and plots when Matp
 | Capability | Status |
 |---|---|
 | Averaged buck plant with losses and thermal estimate | Implemented and unit-tested; strict CCM and bounded DCM approximation |
+| Thevenin battery with OCV-SOC, SOC/current limits, and efficiency | Implemented and analytically tested; no ageing or thermal-life claim |
 | Closed-loop PI voltage control | Implemented and transient-tested |
 | Load step, input variation, sensor bias/noise/disconnect | Implemented and diagnosed |
 | Parameter sweep and Monte Carlo hooks | Implemented in the simulation API |

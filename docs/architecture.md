@@ -22,4 +22,6 @@
 
 The analysis module also exposes a linearized frequency response, gain crossover/phase-margin estimate, deterministic parameter sweeps, and seeded Monte Carlo sampling. These are screening tools for the averaged model, not substitutes for switching-level or measured frequency-response work.
 
+The battery module follows the same boundary: it is an independent software model that can later be composed into a bus or energy-management experiment without coupling storage equations to the converter or CLI layers.
+
 The acceptance criteria are software-model criteria. They do not establish component ratings, EMI compliance, or hardware safety.

@@ -34,3 +34,7 @@
 3. Add reusable transient metrics, fault windows, baseline-vs-fault comparisons, and configuration provenance to reports.
 4. Expand the CLI and experiment configuration without introducing a dashboard or physical-hardware dependency.
 5. Add CI quality checks and document the remaining validation boundary.
+
+## Master-task follow-up
+
+The follow-up upgrade added the standalone Thevenin battery model in `src/open_power_lab/battery.py` and analytical tests in `tests/test_battery.py`. The permanent project scope is software-only: existing legacy `hardware/` and `firmware/` files remain untouched and are excluded from package behavior and CI.

@@ -9,3 +9,11 @@ For the averaged buck converter in continuous conduction:
 The controller is a discrete PI controller with duty saturation and conditional anti-windup. Input power is approximated as `Vin * d * i`; output power is `Vo²/Rload`. Conduction and diode losses are estimated for an engineering trend, not a switching-loss or thermal-certification model.
 
 Valid first-use range: low-voltage DC, positive L/C/load, duty between configured bounds, and the configured conduction mode. `ccm` fails loudly when the inductor current crosses zero. `dcm_approx` clips the averaged current at zero for startup and light-load exploration; it is not a cycle-by-cycle discontinuous-conduction solution and must not be used for ripple, peak-current, or switch-timing claims. Startup soft-start, magnetic saturation, switching ripple, gate-drive dead-time, detailed semiconductor behavior, parasitic layout effects, and thermal transients are outside this model.
+
+## Battery equivalent circuit
+
+The Thevenin battery uses a configurable static open-circuit voltage curve and series resistance:
+
+`V_terminal = OCV(SOC) - I R_internal`
+
+Positive current is discharge. Coulomb counting updates SOC as `dSOC/dt = -I/(3600 Q)` with configured charge/discharge efficiencies and explicit current/SOC limits. This is an energy-system model, not a cell-life, electrochemical, thermal, or safety-validation model.
