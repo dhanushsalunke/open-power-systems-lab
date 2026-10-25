@@ -6,4 +6,6 @@ dist/
 *.egg-info/
 results/*
 !results/.gitkeep
+!results/reference-run/
+!results/reference-run/**
 *.lck
